@@ -39,9 +39,16 @@ const [navbar,setNavbar]=useState(false)
     <header className="w-full mx-auto px-4 fixed top-0 z-50 shadow dark:bg-slate-800 bg-white dark:border-b dark:border-stone-600">
         <div className="justify-between md:items-center md:flex">
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                <div className="text-2xl font-bold">
+
+                <div>
+                 <div className="text-2xl font-bold">
                     Anish Karthick
+                 </div>
+                <div>
+            {navbar?<IoMdClose size={30}/>:<IoMdMenu size={30}/>}
+</div>
                 </div>
+               
             </div>
             <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             {NAV_ITEMS.map((item,idx)=>{
