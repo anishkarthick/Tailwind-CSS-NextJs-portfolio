@@ -1,8 +1,10 @@
+import HomeSection from "@/components/HomeSection"
+
 
 export default function Home() {
   return (
-    <h1 className="text-3xl">
-    N e x t. j s.
-  </h1>
+  <main className="mx-auto max-w-3xl px-4 md:max-w-5 md:px-6">
+    <HomeSection/>
+  </main>
   )
 }
