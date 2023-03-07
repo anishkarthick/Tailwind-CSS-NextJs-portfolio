@@ -1,26 +1,34 @@
-"use client"
-import React from 'react'
-import Image from 'next/image'
+"use client";
+import React from "react";
+import Image from "next/image";
 import { Link } from "react-scroll/modules";
-import { HiArrowDown } from "react-icons/hi"
+import { HiArrowDown } from "react-icons/hi";
 
 const HomeSection = () => {
   return (
-    <section id=" home">
+    <section id="home">
       <div className="flex flex-col text-center items-center justify-center my-10 py-16 sm:py-32 md:py-48 md:flex-row md:space-x-4 md:text-left">
-        <div  className="md:mt-2 md:w-1/2">
-          <Image className="rounded-full shadow-2xl" src="/karthi.jpg" alt="" width={300} height={300} />
+        <div className="md:mt-2 md:w-1/2">
+          <Image
+            className="rounded-full shadow-2xl"
+            src="/karthi.jpg"
+            alt=""
+            width={300}
+            height={300}
+          />
         </div>
         <div className="md:mt-2 md:w-3/5">
-          <h1 className="font-bold text-4xl mt-6 md:mt-0 md:text-7xl">Hi, I&#39;m Anish</h1>
+          <h1 className="font-bold text-4xl mt-6 md:mt-0 md:text-7xl">
+            Hi, I&#39;m Anish
+          </h1>
           <p className="text-ld mt-4 mb-6 md:text-2xl">
             I&#39;m a{" "}
             <span className="font-semibold text-teal-600">
               Fullstack Developer
             </span>{" "}
             Strong in design and integration with intuitive problem-solving
-            skills. Very adaptive to all environments and has the interest 
-            to explore new things.
+            skills. Very adaptive to all environments and has the interest to
+            explore new things.
           </p>
           <Link
             to="projects"
@@ -50,6 +58,6 @@ const HomeSection = () => {
       </div>
     </section>
   );
-}
+};
 
-export default HomeSection
+export default HomeSection;

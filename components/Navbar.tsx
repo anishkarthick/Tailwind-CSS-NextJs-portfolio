@@ -1,4 +1,3 @@
-
 "use client"; // this is a client component
 import React from "react";
 import { useState } from "react";
@@ -9,8 +8,8 @@ import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 interface NavItem {
-  label: string
-  page: string
+  label: string;
+  page: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -24,9 +23,9 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Projects",
-    page: "projects",    
+    page: "projects",
   },
-]
+];
 const Navbar = () => {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
@@ -37,9 +36,12 @@ const Navbar = () => {
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between py-3 ">
-            <div className="md:py-5 md:block">
-              <h2 className="text-2l font-bold">Anish Karthick</h2>
-            </div>
+            <Link to="home">
+              <div className="md:py-5 md:block">
+                <h2 className="text-2l font-bold">Anish Karthick</h2>
+              </div>
+            </Link>
+
             <div className="md:hidden">
               <button onClick={() => setNavbar(!navbar)}>
                 {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}

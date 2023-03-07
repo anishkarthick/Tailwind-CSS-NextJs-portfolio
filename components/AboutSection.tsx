@@ -1,5 +1,5 @@
-import React from "react"
-import Image from "next/image"
+import React from "react";
+import Image from "next/image";
 
 const skills = [
   { skill: "HTML" },
@@ -8,13 +8,16 @@ const skills = [
   { skill: "TypeScript" },
   { skill: "Node" },
   { skill: "Express" },
+  { skill: "AJAX" },
   { skill: "React" },
   { skill: "Next.js" },
   { skill: "Tailwind CSS" },
   { skill: "Git" },
   { skill: "GitHub" },
   { skill: "GitLab" },
-]
+  { skill: "MongoDB" },
+  { skill: "AWS" },
+];
 
 const AboutSection = () => {
   return (
@@ -38,9 +41,9 @@ const AboutSection = () => {
             </p>
             <br />
             <p>
-              I graduated from Anna University, Chennai in 2020
-              with a BE in Computer Science Engineering and have been working in the
-              field ever since.
+              I graduated from Anna University, Chennai in 2020 with a BE in
+              Computer Science Engineering and have been working in the field
+              ever since.
             </p>
             <br />
             <p>
@@ -72,7 +75,7 @@ const AboutSection = () => {
                   >
                     {item.skill}
                   </p>
-                )
+                );
               })}
             </div>
             <Image
@@ -86,7 +89,7 @@ const AboutSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default AboutSection;
