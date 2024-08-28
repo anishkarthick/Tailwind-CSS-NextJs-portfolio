@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SlideUp from "./SlideUP";
 import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
 
-const projects = [
+const personalProjects = [
   {
     name: "Movie booking api",
     description:
@@ -55,49 +57,105 @@ const projects = [
   },
 ];
 
+const clientProjects = [
+  {
+    name: "GMB Integration With Freshdesk",
+    description:
+      "Integrated Google OAuth for multi-account support. Implemented field mapping and location management with auto-updates. Displayed review and question counts on the user dashboard, allowing filtering by location. Create review and questions as tickets in desking portal. Technologies used include React, Node, MongoDB, Freshdesk API, and Google APIs.",
+    image: "/gmb.png",
+    github: "",
+    link: "",
+  },
+
+  {
+    name: "HubSpot CRM Integration With Freshdesk",
+    description:
+      "Connected HubSpot CRM with Freshdesk to sync contacts, companies, and tickets. Automated the creation and updates of contacts and companies, and synchronized ticket statuses between Freshdesk and HubSpot. Technologies used include React, Node, MongoDB, HubSpot API, and Freshdesk API.",
+    image: "/hubspot.png",
+    github: "",
+    link: "",
+  },
+
+  {
+    name: "Task Management App",
+    description:
+      "Features include adding, searching, editing, deleting, and cloning tasks. Users can export tasks to CSV and manage task settings. Created and managed ticket templates, and linked or unlinked tasks to/from tickets in Zendesk. Admin functionality includes managing user roles and permissions with Zendesk OAuth. Middleware handles CRUD operations for user, ticket, and task data. Technologies used include React, Typescript, Node, MongoDB, REST APIs, and Zendesk API.",
+    image: "/TODO.jfif",
+    github: "",
+    link: "",
+  },
+];
+
 const ProjectsSection = () => {
+  const [activeTab, setActiveTab] = useState("personal");
+
+  const projects = activeTab === "personal" ? personalProjects : clientProjects;
+
   return (
-    <section id="projects">
-      <h1 className="my-10 text-center font-bold text-4xl">
+    <section id='projects'>
+      <h1 className='my-10 text-center font-bold text-4xl'>
         Projects
-        <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded"></hr>
+        <hr className='w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded'></hr>
       </h1>
 
-      <div className="flex flex-col space-y-28">
+      <div className='flex justify-center space-x-4 mb-8'>
+        <button
+          className={`px-4 py-2 font-semibold ${
+            activeTab === "personal" ? "bg-teal-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setActiveTab("personal")}
+        >
+          Personal
+        </button>
+        <button
+          className={`px-4 py-2 font-semibold ${
+            activeTab === "client" ? "bg-teal-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setActiveTab("client")}
+        >
+          Client
+        </button>
+      </div>
+
+      <div className='flex flex-col space-y-28'>
         {projects.map((project, idx) => {
           return (
             <div key={idx}>
-              <SlideUp offset="-300px 0px -300px 0px">
-                <div className="flex flex-col  animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12">
-                  <div className=" md:w-1/2">
+              <SlideUp offset='-300px 0px -300px 0px'>
+                <div className='flex flex-col  animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12'>
+                  <div className=' md:w-1/2'>
                     <Link href={project.link}>
                       <Image
                         src={project.image}
-                        alt=""
+                        alt=''
                         width={1000}
                         height={1000}
-                        className="rounded-xl shadow-xl hover:opacity-70"
+                        className='rounded-xl shadow-xl hover:opacity-70'
                       />
                     </Link>
                   </div>
-                  <div className="mt-8 md:w-1/2">
-                    <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
-                    <p className="text-xl leading-7 mb-4 text-neutral-600 dark:text-neutral-400">
+                  <div className='mt-8 md:w-1/2'>
+                    <h1 className='text-4xl font-bold mb-6'>{project.name}</h1>
+                    <p className='text-xl leading-7 mb-4 text-neutral-600 dark:text-neutral-400'>
                       {project.description}
                     </p>
-                    <div className="flex flex-row align-bottom space-x-4">
-                      <Link href={project.github} target="_blank">
-                        <BsGithub
-                          size={30}
-                          className="hover:-translate-y-1 transition-transform cursor-pointer"
-                        />
-                      </Link>
-                      <Link href={project.link} target="_blank">
-                        <BsArrowUpRightSquare
-                          size={30}
-                          className="hover:-translate-y-1 transition-transform cursor-pointer"
-                        />
-                      </Link>
+                    <div className='flex flex-row align-bottom space-x-4'>
+                      {project.github !== "" && (
+                        <Link href={project.github} target='_blank'>
+                          <BsGithub
+                            size={30}
+                            className='hover:-translate-y-1 transition-transform cursor-pointer'
+                          />
+                        </Link>
+                      )}
+                      {project.link !== "" && (
+                        <Link href={project.link} target='_blank'>
+                          <BsArrowUpRightSquare
+                            size={30}
+                            className='hover:-translate-y-1 transition-transform cursor-pointer'
+                          />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
